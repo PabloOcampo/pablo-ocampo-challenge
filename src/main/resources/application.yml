@@ -1,0 +1,24 @@
+server:
+    port: '8081'
+    error:
+        include-message: always
+
+spring:
+    datasource:
+        driver-class-name: org.h2.Driver
+        url: jdbc:h2:mem:bootapp;DB_CLOSE_DELAY=-1
+        username: h2
+        password: h2
+
+crypto:
+    price-api:
+        host: https://cex.io
+        uri: /api/last_price
+        bitcoin-alias: BTC
+        currency: USD
+        contentype: application/json
+        useragent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36'
+    services:
+        priceinfo:
+            config:
+                decimalplaces: 2
