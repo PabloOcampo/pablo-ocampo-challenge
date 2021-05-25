@@ -58,9 +58,9 @@ Estas pruebas se encargan de probar los diferentes endpoint y recursos que expon
 * Apache Commons Math - Libreria utilizada para calculos matematicos
 
 
-### Recursos expuestos por este microservicio:
+## Recursos expuestos por este microservicio:
 
-Consulta sobre el valor del bitcoin en un timestamp determinado:
+### Consulta sobre el valor del bitcoin en un timestamp determinado:
 
 * **URL**
 
@@ -80,13 +80,14 @@ GET
 timestamp = Timestamp con formato 'yyyy-MM-dd'T'HH:mm:ss' indicando la fecha y hora a consultar.
 ```
 
-* **Success Response:**
-
 Se devuelve la informacion de precio disponible para esa fecha y hora:
 
+* **Success Response:**
+
+
 ```
-* **Code: 200** <br />
-  **Content:**  <br />
+Code: 200
+Content:
 {
     "initialTimestamp": "2021-05-20T18:42:25",
     "finalTimestamp": "2021-05-25T23:59:14",
@@ -96,13 +97,17 @@ Se devuelve la informacion de precio disponible para esa fecha y hora:
 }
 ```
 
-* **Error Response:**
+
 
 En caso de que no se encuentre informacion disponible para ese timestamp, se obtendra la siguiente respuesta:
 
+
+* **Error Response:**
+
 ```
-* **Code: 404 BAD REQUEST** <br />
-  **Content:** <br />
+Code: 404 BAD REQUEST
+
+Content:
 {
     "timestamp": "2021-05-25T02:35:18.487+00:00",
     "status": 400,
@@ -119,7 +124,7 @@ curl --location --request GET 'http://localhost:8081/api/cryptos/timestamp/2021-
 ```
 
 
-Consulta sobre informacion de precios entre un rango de timestamps determinado:
+### Consulta sobre informacion de precios entre un rango de timestamps determinado:
 
 * **URL**
 
@@ -141,13 +146,15 @@ initialTimestamp = Timestamp con formato 'yyyy-MM-dd'T'HH:mm:ss', indica el comi
 finalTimestamp = Timestamp con formato 'yyyy-MM-dd'T'HH:mm:ss', indica el final del rango de fechas a consultar
 ```
 
-* **Success Response:**
-
 Se devuelve la informacion de precio disponible para ese rango de fechas:
 
+* **Success Response:**
+
+
 ```
-* **Code: 200** <br />
-  **Content:** <br />
+Code: 200
+
+Content:
 {
     "initialTimestamp": "2021-05-20T18:42:25",
     "finalTimestamp": "2021-05-25T23:59:14",
@@ -157,13 +164,15 @@ Se devuelve la informacion de precio disponible para ese rango de fechas:
 }
 ```
 
-* **Error Response:**
-
 En caso de que no se encuentre informacion disponible para el rango de fechas requerido, se obtendra la siguiente respuesta:
 
+* **Error Response:**
+
+
 ```
-* **Code: 404 BAD REQUEST** <br />
-  **Content:** <br />
+Code: 404 BAD REQUEST
+
+Content:
 {
     "timestamp": "2021-05-25T01:24:00.267+00:00",
     "status": 400,
@@ -179,9 +188,11 @@ En caso de que no se encuentre informacion disponible para el rango de fechas re
 curl --location --request GET 'http://localhost:8081/api/cryptos/priceinfo?initialTimestamp=2021-05-20T18:42:25&finalTimestamp=2021-05-23T23:59:14'
 ```
 
+
 ## Versionado 📌
 
 V1.0.0 - Version actual.
+
 
 ## Autor ✒️
 
